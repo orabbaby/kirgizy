@@ -27,9 +27,15 @@ def my_first_dag():
     @task
     def my_first_task():
         print("pipik kiil samy hofyi")
+    
+    @task
+    def my_second_task():
+        for i in range(10):
+            return(sum(i))
 
     (
         my_first_task()
+        >> my_second_task()
     )
 
 my_first_dag = my_first_dag()
